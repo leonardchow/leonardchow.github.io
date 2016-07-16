@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--
+http://stackoverflow.com/questions/20316598/creating-new-dropdown-lists-with-a-button
+-->
+<html>
+<head>
+<script src="js/lz-string.js"></script>
+<script src="js/outputJS.js"></script>
+<script src="js/mainJS.js"></script>
+
+</head>
+
+<body onload="listChangeNew()">
+<div id="appendBody">
+  <div id="mainContainer">
+    <div id="divPopulate">
+      <textarea id="textAreaInput" rows="2" cols="50"></textarea>
+      </br>
+      <input id="populateBtn" type="button" value=" Populate " onClick="executeListInject();">
+    </div>
+  </div>
+</div>
+<div>
+  <textarea readonly id="textAreaList" rows="7" cols="50">
+Please select a module,
+Or enter valid string above to populate.
+  </textarea>
+</div>
+</body>
+</html>
