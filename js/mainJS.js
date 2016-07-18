@@ -25,8 +25,6 @@ function checkLocalStorage() {
       retrieveInfo = localStorage.getItem(localStoreName);
       console.log(retrieveInfo);
     }
-  } else {
-    webStore = false;
   }
 }
 
@@ -34,6 +32,7 @@ function clearLocalStorage() {
   if (webStore) {
     localStorage.removeItem(localStoreName);
   }
+  location.reload();
 }
 
 function saveToLocalStorage(saveItem) {
@@ -125,7 +124,7 @@ function getArrayOutput(doCompress) {
 function addNew(_initSel) {
   if (_initSel === undefined) {
     _initSel = 0;
-    var isNew = true;
+    var isNew = true; //There's no initial selection.
   } else {
     var isNew = false;
   }
@@ -147,7 +146,7 @@ function addNew(_initSel) {
       listChangeNew();
       isNew = !isNew;
     }
-    listChange();
+    listUpdate();
   };
 
   // Populate options with an array. Third arg is optional.
@@ -186,7 +185,7 @@ function addDelButton() {
   newDelButton.value = " X ";
   newDelButton.onclick = function() {
     this.parentElement.remove();
-    listChange();
+    listUpdate();
   };
   if (iterNum > 2) {
     //console.log("added " + divs.length + ", " + iterNum);
@@ -232,60 +231,66 @@ function listChangeNew(item) {
   addNew(item);
   addDelButton();
 }
-function listChange() {
+function listUpdate() {
   checkDuplicates();
   updateTextArea("textAreaList");
 }
 function listInject(arrPut, toRemove) {
   var selects = document.getElementsByClassName("listSel");
-  var btn = document.getElementById("populateBtn");
+  var divPop = document.getElementById("divPopulate");
 
   for (var i = 0; i < arrPut.length; i++) {
     listChangeNew(arrPut[i]);
   }
-  listChangeNew();
-  btn.parentElement.remove();
+  listChangeNew(); //Add a new unselected dropdown
+  divPop.remove();
   if (toRemove) {
     console.log("removing");
     selects[0].parentElement.remove();
   }
-  listChange();
+  listUpdate();
 }
 
-function chunk(str, size) {
+function chunk(str, size) { //Divide the string into array
     return str.match(new RegExp('.{1,' + size + '}', 'g'));
 }
 
 function loadListInject(dataRaw, btnPress) {
+  var dataIsValid = false;
+
   if (btnPress) { //If populate button was pressed, don't decompress
     var data = dataRaw;
   } else {
     var data = LZString.decompress(dataRaw);
   }
-  if (dataRaw != "") {
-    var dataCheck = data.slice((data.length - 3));
-    console.log(data, dataCheck);
-    if (data.indexOf(":") == 1 && dataCheck == "END") { //Check valid
-      var primeSplit = data.split(":");
-      var subs = primeSplit[0];
-      console.log("subs: " + subs);
-      var intermediate = primeSplit[1].split("END");
 
-      var output = chunk(intermediate[0], subs);
-
-      console.log("output: ");
-      console.log(output);
-
-      listInject(output, btnPress);
-      return true;
-    } else {
-      //Data is not usable:
-      return false;
+  if (dataRaw != "") { //Do data checks.
+    var dataCheckEND = data.slice((data.length - 3));
+    console.log(data, dataCheckEND);
+    if (dataCheckEND == "END") { //Data has "END".
+      dataCheckBody = data.split("END");
+      if (data.indexOf(":") == 1) { //Colon is at the right place.
+        dataCheckColon = dataCheckBody[0].split(":");
+        if (dataCheckColon[1].length > 0) { //And there's module info.
+          console.log("Data is valid");
+          dataIsValid = true;
+          var dataUse = dataCheckColon;
+        }
+      }
     }
-  } else {
-    //No data, or empty data:
-    return false;
   }
+
+  if (dataIsValid) {
+    console.log("subs: " + dataUse[0]);
+
+    var output = chunk(dataUse[1], dataUse[0]);
+
+    console.log("output: ");
+    console.log(output);
+
+    listInject(output, btnPress);
+  }
+  return dataIsValid;
 }
 
 function updateTextArea(textAreaID) {
@@ -342,7 +347,6 @@ function updateTextArea(textAreaID) {
   newText += arrayOutput;
   document.getElementById(textAreaID).value = newText;
 }
-
 
 function executeListInject() {
   var textAreaDataRaw = document.getElementById("textAreaInput").value;
