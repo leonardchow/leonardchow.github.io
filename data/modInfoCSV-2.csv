@@ -1,0 +1,109 @@
+code,modType,name,MCs,isCoreMod
+Please select module:,0,,0,FALSE
+NM1101E,NM,"Communications, New Media and Society",4,TRUE
+NM2101,NM,Theories Of Communications and New Media,4,TRUE
+NM2103,NM,Quantitative Research Methods ,4,TRUE
+NM2104,NM,Qualitative Communication Research Methods ,4,TRUE
+NM2201,NM,Intercultural Communication,4,FALSE
+NM2203,NM,Social Media in Communication Management ,4,FALSE
+NM2207 ,NM,Computational Media Literacy *NEW,4,FALSE
+NM2208,NM,Principles of Visual Communication,4,FALSE
+NM2209,NM,Social Psychology of New Media,4,FALSE
+NM2212,NM,Visual Design ,4,FALSE
+NM2213,NM,Introduction to Human-Computer Interaction Design ,4,FALSE
+NM2216,NM,User Centred Design Methodologies,4,FALSE
+NM2219,NM,Principles of Communication Management,4,FALSE
+NM2220,NM,Introduction to Media Writing,4,FALSE
+NM2301,NM,Persuasive Communication: Theory and Application,4,FALSE
+NM2302,NM,New Media and Mobility,4,FALSE
+NM3202,NM,Governance and New Media,4,FALSE
+NM3203,NM,Copyright and New Media,4,FALSE
+NM3204,NM,E-Learning,4,FALSE
+NM3205,NM,Digital Culture and Art ,4,FALSE
+NM3207,NM,Philosophy in Communications and New Media ,4,FALSE
+NM3209,NM,Designing for Interactivity,4,FALSE
+NM3210,NM,Cybercrime and Society,4,FALSE
+NM3211,NM,News Reporting and Editing,4,FALSE
+NM3213,NM,Digital Humanities ,4,FALSE
+NM3214,NM,New Media and Science Communication ,4,FALSE
+NM3215,NM,Advertising Strategies,4,FALSE
+NM3216,NM,Game Design,4,FALSE
+NM3217,NM,Design for Strategic Communications,4,FALSE
+NM3219,NM,Writing for Communication Management,4,FALSE
+NM3221,NM,Mobile Interaction Design,4,FALSE
+NM3222,NM,Interactive Storytelling,4,FALSE
+NM3223,NM,Digital and Interactive Collage,4,FALSE
+NM3224,NM,Culture Industries,4,FALSE
+NM3226,NM,Location-Based Interactive Experiences,4,FALSE
+NM3227,NM,Critical Game Design ,4,FALSE
+NM3228,NM,Interactive Sequential Art,4,FALSE
+NM3229,NM,Data Visualization,4,FALSE
+NM3230,NM, Photographic & Video Storytelling,4,FALSE
+NM3231,NM,Physical Interaction Design ,4,FALSE
+NM3232,NM,Strategic Communication: Concepts ,4,FALSE
+NM3233,NM,Strategic Communication: Applications ,4,FALSE
+NM3234,NM,"Leadership, Organisations and New Media ",4,FALSE
+NM3235,NM,Corporate Social Responsibility: Research and Practice,4,FALSE
+NM3236,NM,Ethics in Communication Management ,4,FALSE
+NM3237,NM,Health Communication,4,FALSE
+NM3238 ,NM,Software Studies ,4,FALSE
+NM3239 ,NM,"Retrieving, Exploring and Analysing Data *NEW",4,FALSE
+NM3550,NM,Communications and New Media Internship,4,FALSE
+INM3550,INM,Extended Internship (Concurrent with NM3550),4,FALSE
+NM3551,NM,FASS Undergraduate Research Opportunities,4,FALSE
+NM4102,NM,Advanced Communications and New Media Research(Formerly known as NM4101),5,TRUE
+NM4202,NM,Transnational Information Producers,5,FALSE
+NM4203,NM,Infocom Technology Policy,5,FALSE
+NM4204,NM,Ethical Issues in Emergent Technologies,5,FALSE
+NM4206,NM,Media and Communications Regulation,5,FALSE
+NM4207,NM,Managing Communication Campaigns,5,FALSE
+NM4208,NM,Designing for an Integrated Communications Environment,5,FALSE
+NM4209,NM,Advanced Game Design,5,FALSE
+NM4210,NM,User Experience Design,5,FALSE
+NM4211,NM,Online Journalism,5,FALSE
+NM4212,NM,Media and Representation,5,FALSE
+NM4213,NM,Digital Economies,5,FALSE
+NM4218,NM,Knowledge Management: Approaches and Critique,5,FALSE
+NM4219,NM,New Media in Health Communication ,5,FALSE
+NM4221,NM,Writing in Health Communications,5,FALSE
+NM4223,NM,New Media and Organizations,5,FALSE
+NM4224,NM,Sound and Interaction,5,FALSE
+NM4225,NM,Design Fiction ,5,FALSE
+NM4226,NM,Interactive Media Design Capstone Project,5,FALSE
+NM4227,NM,Playable Art ,5,FALSE
+NM4228,NM,Crisis Communication ,5,FALSE
+NM4229,NM,Cultural Communication and Creative Expression,5,FALSE
+NM4230,NM,Communication for Social Change ,5,FALSE
+NM4401,NM,Honours Thesis,5,FALSE
+XFA4403,XFA,CNM Integrated Honours Thesis,5,FALSE
+NM4660,NM,Independent Study,5,FALSE
+NM4881A,NM,Topics in Media Studies: Social Media,5,FALSE
+NM4881B,NM,Postcolonial Approaches to Media and Communication,5,FALSE
+NM4881C,NM,Critical Theory and Cultural Studies in New Media,5,FALSE
+NM4883B,NM,Enthomethodolgy for New Media ,5,FALSE
+NM4883C ,NM, Communication & Asian Holistic Healthcare,5,FALSE
+NM4883D ,NM, New Media Production and Public Engagement,5,FALSE
+NM4883E,NM, Health Communications and Social Marketing,5,FALSE
+NM5201,NM,State and Civil Society in The Information Age,5,FALSE
+NM5204,NM,Computer-Mediated Environments,5,FALSE
+NM5205,NM,Cognition and Media,5,FALSE
+NM5207,NM,ICTs and Development,5,FALSE
+NM5209,NM,Interactive Media Arts,5,FALSE
+NM5210,NM,Interactive Media Design Research ,5,FALSE
+NM5212,NM,Theories of Public Relations,5,FALSE
+NM5214,NM,Design for Open Science,5,FALSE
+NM5215,NM,Design Knowledge for Interactive Media,5,FALSE
+NM5216,NM,"Culture, Communication & Health",5,FALSE
+NM5217,NM,Designing for Prosocial Behavior ,5,FALSE
+NM5660,NM,Independent Study,5,FALSE
+NM5771 ,NM,Networked Society,5,FALSE
+NM6101,NM,Advanced Theories in Communications and New Media,5,FALSE
+NM6104,NM,Qualitative Research Methods and Communications and New Media ,5,FALSE
+NM6660,NM,Independent Study ,5,FALSE
+GEM1036 / GEH1001,GEM,Globalization and New Media ,4,FALSE
+GEM2027 / GET1008,GEM,Public Speaking and Critical Reasoning ,4,FALSE
+FMA1203C,FMA,Smart Cities ,4,FALSE
+FMA1204C,FMA,Saving Face,4,FALSE
+GEH1061,GEH,Representation and Media,4,FALSE
+GET1035,GET,Critical Perspective in Advertising,4,FALSE
+GES1031,GES,Culture and Communication in Singapore,4,FALSE

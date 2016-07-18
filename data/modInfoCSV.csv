@@ -1,0 +1,6 @@
+code,modType,name,MCs,isCoreMod
+Please select module:,0,,0,FALSE
+NM1101E,0,Intro to NM,4,TRUE
+NM2103,0,Quantitative,4,TRUE
+NM2104,0,Qualitative,4,TRUE
+NM3219,0,Writing,4,FALSE

@@ -1,46 +1,10 @@
-function htmlRun() {
-  //First thing to run, called by HTML page.
-  checkLocalStorage();
-  if (loadListInject(retrieveInfo)) {
-  } else {
-    listChangeNew();
-  }
-}
-
 var iterNum = 1;
 var itemArray = [];
-var retrieveInfo = "";
-var localStoreName = "modCheck";
-var webStore = false;
 
 var modCodes = ["NM", "CS"];
 var modInfoArray = modInfoPack;
 
 var reqMCs = 100;
-
-function checkLocalStorage() {
-  if (typeof(Storage) !== "undefined") {
-    webStore = true;
-    if (localStorage.getItem(localStoreName) !== null) {
-      retrieveInfo = localStorage.getItem(localStoreName);
-      console.log(retrieveInfo);
-    }
-  } else {
-    webStore = false;
-  }
-}
-
-function clearLocalStorage() {
-  if (webStore) {
-    localStorage.removeItem(localStoreName);
-  }
-}
-
-function saveToLocalStorage(saveItem) {
-  if (webStore) {
-    localStorage.setItem(localStoreName, saveItem);
-  }
-}
 
 function concArray(arr, empty, suffix) {
   if (empty === undefined) { empty = ""; }
@@ -89,13 +53,11 @@ function getCoreMods() {
   return coreModArr;
 }
 
-function getArrayOutput(doCompress) {
+function getArrayOutput() {
   var returnStr;
   var compressedStr;
   var itArr = itemArray;
-  if (itArr[(itArr.length-1)] == 0) {
-    itArr.pop(); //Remove the last item in itArr if it's 0.
-  }
+  itArr.pop(); //Remove the last item in itArr (Should be '0')
   var itArrMax = String(Math.max.apply(null, itArr));
 
   //If max is more than single digit, add zeroes:
@@ -113,13 +75,10 @@ function getArrayOutput(doCompress) {
     }
   }
 
-  returnStr = itArrMax.length + ":" + itArr.join("") + "END";
-  if (doCompress) {
-    compressedStr = LZString.compress(returnStr);
-    return compressedStr;
-  } else {
-    return returnStr;
-  }
+  returnStr = itArrMax.length + ":" + itArr.join("");
+
+  compressedStr = LZString.compress(returnStr);
+  return compressedStr;
 }
 
 function addNew(_initSel) {
@@ -236,7 +195,7 @@ function listChange() {
   checkDuplicates();
   updateTextArea("textAreaList");
 }
-function listInject(arrPut, toRemove) {
+function listInject(arrPut) {
   var selects = document.getElementsByClassName("listSel");
   var btn = document.getElementById("populateBtn");
 
@@ -245,10 +204,7 @@ function listInject(arrPut, toRemove) {
   }
   listChangeNew();
   btn.parentElement.remove();
-  if (toRemove) {
-    console.log("removing");
-    selects[0].parentElement.remove();
-  }
+  selects[0].parentElement.remove();
   listChange();
 }
 
@@ -256,35 +212,29 @@ function chunk(str, size) {
     return str.match(new RegExp('.{1,' + size + '}', 'g'));
 }
 
-function loadListInject(dataRaw, btnPress) {
-  if (btnPress) { //If populate button was pressed, don't decompress
-    var data = dataRaw;
-  } else {
-    var data = LZString.decompress(dataRaw);
-  }
-  if (dataRaw != "") {
-    var dataCheck = data.slice((data.length - 3));
-    console.log(data, dataCheck);
-    if (data.indexOf(":") == 1 && dataCheck == "END") { //Check valid
-      var primeSplit = data.split(":");
+function executeListInject() {
+  var textAreaDataRaw = document.getElementById("textAreaInput").value;
+  if (textAreaDataRaw != "") {
+    var textAreaData = LZString.decompress(textAreaDataRaw);
+    console.log(textAreaData);
+    if (textAreaData.indexOf(":") == 1) {
+      var primeSplit = textAreaData.split(":");
       var subs = primeSplit[0];
       console.log("subs: " + subs);
-      var intermediate = primeSplit[1].split("END");
 
-      var output = chunk(intermediate[0], subs);
+      var output = chunk(primeSplit[1], subs);
 
       console.log("output: ");
       console.log(output);
 
-      listInject(output, btnPress);
-      return true;
+      listInject(output);
     } else {
-      //Data is not usable:
-      return false;
+      var newText = "Please enter a valid string to populate with.";
+      document.getElementById("textAreaList").value = newText;
     }
   } else {
-    //No data, or empty data:
-    return false;
+    var newText = "Please enter a data to repopulate with.";
+    document.getElementById("textAreaList").value = newText;
   }
 }
 
@@ -327,7 +277,6 @@ function updateTextArea(textAreaID) {
 
   //Figuring out the itemArray output
   var arrayOutput = getArrayOutput();
-  saveToLocalStorage(getArrayOutput(true));
 
   newText += concArray(modValues, "No modules", ".");
   newText += "\n";
@@ -341,10 +290,4 @@ function updateTextArea(textAreaID) {
   newText += "\n";
   newText += arrayOutput;
   document.getElementById(textAreaID).value = newText;
-}
-
-
-function executeListInject() {
-  var textAreaDataRaw = document.getElementById("textAreaInput").value;
-  loadListInject(textAreaDataRaw, true);
 }

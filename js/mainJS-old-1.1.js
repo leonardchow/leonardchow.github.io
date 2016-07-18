@@ -23,7 +23,6 @@ function checkLocalStorage() {
     webStore = true;
     if (localStorage.getItem(localStoreName) !== null) {
       retrieveInfo = localStorage.getItem(localStoreName);
-      console.log(retrieveInfo);
     }
   } else {
     webStore = false;
@@ -89,13 +88,11 @@ function getCoreMods() {
   return coreModArr;
 }
 
-function getArrayOutput(doCompress) {
+function getArrayOutput() {
   var returnStr;
   var compressedStr;
   var itArr = itemArray;
-  if (itArr[(itArr.length-1)] == 0) {
-    itArr.pop(); //Remove the last item in itArr if it's 0.
-  }
+  itArr.pop(); //Remove the last item in itArr (Should be '0')
   var itArrMax = String(Math.max.apply(null, itArr));
 
   //If max is more than single digit, add zeroes:
@@ -114,12 +111,9 @@ function getArrayOutput(doCompress) {
   }
 
   returnStr = itArrMax.length + ":" + itArr.join("") + "END";
-  if (doCompress) {
-    compressedStr = LZString.compress(returnStr);
-    return compressedStr;
-  } else {
-    return returnStr;
-  }
+
+  compressedStr = LZString.compress(returnStr);
+  return compressedStr;
 }
 
 function addNew(_initSel) {
@@ -236,7 +230,7 @@ function listChange() {
   checkDuplicates();
   updateTextArea("textAreaList");
 }
-function listInject(arrPut, toRemove) {
+function listInject(arrPut) {
   var selects = document.getElementsByClassName("listSel");
   var btn = document.getElementById("populateBtn");
 
@@ -245,10 +239,7 @@ function listInject(arrPut, toRemove) {
   }
   listChangeNew();
   btn.parentElement.remove();
-  if (toRemove) {
-    console.log("removing");
-    selects[0].parentElement.remove();
-  }
+  //selects[0].parentElement.remove();
   listChange();
 }
 
@@ -256,13 +247,10 @@ function chunk(str, size) {
     return str.match(new RegExp('.{1,' + size + '}', 'g'));
 }
 
-function loadListInject(dataRaw, btnPress) {
-  if (btnPress) { //If populate button was pressed, don't decompress
-    var data = dataRaw;
-  } else {
-    var data = LZString.decompress(dataRaw);
-  }
+function loadListInject(dataRaw) {
+  //var dataRaw = retrieveInfo;
   if (dataRaw != "") {
+    var data = LZString.decompress(dataRaw);
     var dataCheck = data.slice((data.length - 3));
     console.log(data, dataCheck);
     if (data.indexOf(":") == 1 && dataCheck == "END") { //Check valid
@@ -276,7 +264,7 @@ function loadListInject(dataRaw, btnPress) {
       console.log("output: ");
       console.log(output);
 
-      listInject(output, btnPress);
+      listInject(output);
       return true;
     } else {
       //Data is not usable:
@@ -327,7 +315,7 @@ function updateTextArea(textAreaID) {
 
   //Figuring out the itemArray output
   var arrayOutput = getArrayOutput();
-  saveToLocalStorage(getArrayOutput(true));
+  saveToLocalStorage(arrayOutput);
 
   newText += concArray(modValues, "No modules", ".");
   newText += "\n";
@@ -346,5 +334,28 @@ function updateTextArea(textAreaID) {
 
 function executeListInject() {
   var textAreaDataRaw = document.getElementById("textAreaInput").value;
-  loadListInject(textAreaDataRaw, true);
+  if (textAreaDataRaw != "") {
+    var textAreaData = LZString.decompress(textAreaDataRaw);
+    console.log(textAreaData);
+    if (textAreaData.indexOf(":") == 1) {
+      var primeSplit = textAreaData.split(":");
+      var subs = primeSplit[0];
+      console.log("subs: " + subs);
+
+      var intermediate = primeSplit[1].split("END");
+
+      var output = chunk(intermediate[0], subs);
+
+      console.log("output: ");
+      console.log(output);
+
+      listInject(output);
+    } else {
+      var newText = "Please enter a valid string to populate with.";
+      document.getElementById("textAreaList").value = newText;
+    }
+  } else {
+    var newText = "Please enter a data to repopulate with.";
+    document.getElementById("textAreaList").value = newText;
+  }
 }
