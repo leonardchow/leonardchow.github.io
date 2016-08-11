@@ -1,3 +1,7 @@
+//To fix:
+//Populate button should clear all contents of page.
+//Maybe can parse info, write to localStorage, then refresh?
+
 function htmlRun() {
   //First thing to run, called by HTML page.
   checkLocalStorage();

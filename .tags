@@ -38,6 +38,50 @@ isCoreMod	data/modInfoRawPY.py	/^                isCoreMod = 'TRUE'$/;"	v
 fw	data/modInfoRawPY.py	/^fw = open("modInfoCSV-2.csv", 'wt')$/;"	v
 writer	data/modInfoRawPY.py	/^    writer = csv.writer(fw)$/;"	v
 itemArr	data/modInfoRawPY.py	/^        itemArr = []$/;"	v
+webStore	js/fuelMinderJS-v2.js	/^var webStore = false;$/;"	v
+retrieveInfo	js/fuelMinderJS-v2.js	/^var retrieveInfo = [];$/;"	v
+localStoreName	js/fuelMinderJS-v2.js	/^var localStoreName = "fuelMinder";$/;"	v
+dataArray	js/fuelMinderJS-v2.js	/^var dataArray = [];$/;"	v
+htmlRun	js/fuelMinderJS-v2.js	/^function htmlRun() {$/;"	f
+checkLocalStorage	js/fuelMinderJS-v2.js	/^function checkLocalStorage() {$/;"	f
+clearLocalStorage	js/fuelMinderJS-v2.js	/^function clearLocalStorage() {$/;"	f
+saveToLocalStorage	js/fuelMinderJS-v2.js	/^function saveToLocalStorage(saveItem) {$/;"	f
+initNumBox	js/fuelMinderJS-v2.js	/^function initNumBox(newBox, step, initVal, max) {$/;"	f
+newDelButton.onclick	js/fuelMinderJS-v2.js	/^  newDelButton.value = " Remove Entry ";$/;"	c
+addLine	js/fuelMinderJS-v2.js	/^function addLine() {$/;"	f
+checkValueIsPresent	js/fuelMinderJS-v2.js	/^function checkValueIsPresent(inputValue) {$/;"	f
+divideValues	js/fuelMinderJS-v2.js	/^function divideValues(a, b) {$/;"	f
+numBoxChange	js/fuelMinderJS-v2.js	/^function numBoxChange() {$/;"	f
+newButton.onclick	js/fuelMinderJS-v2.js	/^  newButton.value = " Add Entry ";$/;"	f
+addButton	js/fuelMinderJS-v2.js	/^function addButton() {$/;"	f
+webStore	js/fuelMinderJS-v3.js	/^var webStore = false;$/;"	v
+retrieveInfo	js/fuelMinderJS-v3.js	/^var retrieveInfo = [];$/;"	v
+localStoreName	js/fuelMinderJS-v3.js	/^var localStoreName = "fuelMinder";$/;"	v
+dataArray	js/fuelMinderJS-v3.js	/^var dataArray = [];$/;"	v
+htmlRun	js/fuelMinderJS-v3.js	/^function htmlRun() {$/;"	f
+checkLocalStorage	js/fuelMinderJS-v3.js	/^function checkLocalStorage() {$/;"	f
+clearLocalStorage	js/fuelMinderJS-v3.js	/^function clearLocalStorage() {$/;"	f
+saveToLocalStorage	js/fuelMinderJS-v3.js	/^function saveToLocalStorage(saveItem) {$/;"	f
+initNumBox	js/fuelMinderJS-v3.js	/^function initNumBox(newBox, step, initVal, max) {$/;"	f
+newDelButton.onclick.listener	js/fuelMinderJS-v3.js	/^    function listener(f) {$/;"	f
+newDelButton.onclick	js/fuelMinderJS-v3.js	/^  newDelButton.value = " Remove Entry ";$/;"	f
+addLine	js/fuelMinderJS-v3.js	/^function addLine() {$/;"	f
+checkValueIsPresent	js/fuelMinderJS-v3.js	/^function checkValueIsPresent(inputValue) {$/;"	f
+divideValues	js/fuelMinderJS-v3.js	/^function divideValues(a, b) {$/;"	f
+numBoxChange	js/fuelMinderJS-v3.js	/^function numBoxChange() {$/;"	f
+newButton.onclick	js/fuelMinderJS-v3.js	/^  newButton.value = " Add Entry ";$/;"	f
+addButton	js/fuelMinderJS-v3.js	/^function addButton() {$/;"	f
+webStore	js/fuelMinderJS.js	/^var webStore = false;$/;"	v
+retrieveInfo	js/fuelMinderJS.js	/^var retrieveInfo = "";$/;"	v
+localStoreName	js/fuelMinderJS.js	/^var localStoreName = "FuelMinder";$/;"	v
+dataArray	js/fuelMinderJS.js	/^var dataArray = [];$/;"	v
+htmlRun	js/fuelMinderJS.js	/^function htmlRun() {$/;"	f
+checkLocalStorage	js/fuelMinderJS.js	/^function checkLocalStorage() {$/;"	f
+initNumBox	js/fuelMinderJS.js	/^function initNumBox(newBox, step) {$/;"	f
+addLine	js/fuelMinderJS.js	/^function addLine() {$/;"	f
+numBoxChange	js/fuelMinderJS.js	/^function numBoxChange() {$/;"	f
+newButton.onclick	js/fuelMinderJS.js	/^  newButton.value = " Add Entry ";$/;"	f
+addButton	js/fuelMinderJS.js	/^function addButton() {$/;"	f
 fs	js/lz-string-master/bin/bin.js	/^var fs = require('fs');$/;"	v
 name	js/lz-string-master/bower.json	/^  "name": "lz-string",$/;"	f
 version	js/lz-string-master/bower.json	/^  "version": "1.4.4",$/;"	f

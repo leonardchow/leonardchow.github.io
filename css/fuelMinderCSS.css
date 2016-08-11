@@ -1,0 +1,117 @@
+#mainContainer {
+  font-family:sans-serif;
+}
+
+.button {
+  font-size: 14px;
+  color: white;
+  background-color: slateblue;
+  border: none;
+  display: inline-block;
+  padding: 5px;
+  border-radius: 4px;
+  box-shadow: 0px 5px 10px 0px rgba(0,0,0, 0.3);
+  transition-duration: 0.2s;
+}
+
+.button:hover {
+  box-shadow: 0px 6px 10px 0px rgba(0,0,0, 0.4);
+  background-color: royalblue;
+}
+
+.button:active {
+  box-shadow: 0px 5px 10px 0px rgba(0,0,0, 0.3);
+  background-color: slategrey;
+}
+
+@keyframes animateIn {
+  0% {
+    transform: translateX(-100%) rotate(-20deg);
+    opacity: 0.5;
+    height: 0px;
+  }
+  80% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+    height: 230px;
+  }
+}
+
+@keyframes animateOut {
+  from {
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+    height: 230px;
+  }
+  to {
+    transform: translateX(-100%) rotate(-20deg);
+    opacity: 0;
+    height: 0px;
+  }
+}
+
+.entryDiv {
+}
+
+.moveIn {
+  animation: animateIn 1s;
+}
+
+.moveOut {
+  animation: animateOut 1s;
+}
+
+.greyBG {
+  background-color: rgba(211, 211, 211, 0.3);
+}
+
+.whiteBG {
+  background-color: rgba(255,255,255,0.5);
+}
+
+.flex-container {
+  display: flex;
+  width: 100%;
+  margin: 1px;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-label {
+  width:50%;
+  text-align: right;
+  margin: inherit;
+}
+
+.flex-item {
+  width:50%;
+  text-align: left;
+  margin: inherit;
+}
+
+.flex-center {
+  text-align: center;
+}
+
+.dataDiv {
+  padding-bottom:15px;
+  overflow-x:auto;
+
+  width: 70%;
+  border: 1px solid lightgray;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.tableLabel {
+  font-weight: bold;
+}
+
+.numBox {
+  font-size: 11pt;
+  width: 70px;
+}
