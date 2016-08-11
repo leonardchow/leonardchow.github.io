@@ -3,7 +3,7 @@
 }
 
 .button {
-  font-size: 14px;
+  font-size: 20px;
   color: white;
   background-color: slateblue;
   border: none;
@@ -25,43 +25,24 @@
 }
 
 @keyframes animateIn {
-  0% {
-    transform: translateX(-100%) rotate(-20deg);
-    opacity: 0.5;
-    height: 0px;
-  }
-  80% {
-    opacity: 0.7;
-  }
-  100% {
-    transform: translateX(0) rotate(0deg);
-    opacity: 1;
-    height: 230px;
-  }
-}
-
-@keyframes animateOut {
   from {
-    transform: translateX(0) rotate(0deg);
-    opacity: 1;
-    height: 230px;
+    transform: scale(0);
+    opacity: 0;
+    /*height: 0px;*/
   }
   to {
-    transform: translateX(-100%) rotate(-20deg);
-    opacity: 0;
-    height: 0px;
+    transform: scale(1);
+    opacity: 1;
+    /*height: 230px;*/
   }
-}
-
-.entryDiv {
 }
 
 .moveIn {
-  animation: animateIn 1s;
+  animation: animateIn 0.5s;
 }
 
 .moveOut {
-  animation: animateOut 1s;
+  animation: animateIn 0.5s reverse;
 }
 
 .greyBG {
@@ -112,6 +93,6 @@
 }
 
 .numBox {
-  font-size: 11pt;
+  font-size: 20pt;
   width: 70px;
 }
