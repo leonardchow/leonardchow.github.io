@@ -1,12 +1,17 @@
 //=====Variables=====
-var webStore = false;
-var retrieveInfo = [];
-var localStoreName = "fuelMinder";
-var dataArray = [];
+var webStore;
+var retrieveInfo;
+var localStoreName;
+var dataArray;
 
 //=====Variables=====
 
 function htmlRun() {
+  webStore = false;
+  retrieveInfo = [];
+  localStoreName = "fuelMinder";
+  dataArray = [];
+
   //First thing to run, called by HTML page.
   checkLocalStorage();
   addLine();
@@ -196,6 +201,7 @@ function divideValues(a, b) {
 }
 
 function numBoxChange() {
+  //updates Labels and info.
   //console.log("input Change");
   var distBox = document.getElementsByClassName('distBox');
   var litresBox = document.getElementsByClassName('litresBox');
