@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--
+-->
+<html>
+<head>
+  <title>Modal Test</title>
+  <!-- AJAX Script -->
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script> -->
+  <script src="js/modal-TestJS.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/modal-TestCSS.css">
+
+</head>
+
+<body onload="htmlRun();">
+<!-- <body> -->
+<div class ="content">
+  <h2>Bottom Modal</h2>
+
+  <!-- Trigger/Open The Modal -->
+  <button class="modalOpener" id="myBtn">Open Modal</button>
+  <div id="displayArea">
+  </div>
+
+</div>
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <span id="closeBtn" class="close">&times</span>
+        <h2 id="headerText">Modal Header</h2>
+      </div>
+      <div class="modal-body">
+        <div id="modalBody">
+        </div>
+        <p>Some text in the Modal Body</p>
+        <p>Some other text...</p>
+        <input type="text" id="textField1">
+      </div>
+      <div class="modal-footer">
+        <h3>Modal Footer</h3>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
