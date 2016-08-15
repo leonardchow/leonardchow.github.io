@@ -1,0 +1,125 @@
+.titleLabel, .locLabel, .timeLabel {
+  font-size: 10pt;
+  font-weight: bold;
+  color: grey;
+  text-transform: uppercase;
+  justify-content: left;
+  text-align: left;
+}
+
+/*OLD*/
+
+#mainContainer, #btnContainer {
+  font-family:sans-serif;
+  font-size: 20pt;
+  margin: 20px;
+}
+
+
+.entryDiv {
+  padding-bottom:15px;
+  overflow-x:auto;
+
+  max-width: 400px;
+  border: 1px solid lightgray;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.cardArea {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.costArea, .dataArea {
+  width: 33%;
+}
+
+.button {
+  font-size: 20pt;
+  color: white;
+  background-color: slateblue;
+  border: none;
+  margin: 10px;
+  cursor: pointer;
+  /*display: inline-block;*/
+  padding: 5px;
+  border-radius: 4px;
+  box-shadow: 0px 5px 10px 0px rgba(0,0,0, 0.3);
+  transition-duration: 0.2s;
+}
+
+.button:hover {
+  box-shadow: 0px 6px 10px 0px rgba(0,0,0, 0.4);
+  background-color: royalblue;
+}
+
+.button:active {
+  box-shadow: 0px 5px 10px 0px rgba(0,0,0, 0.3);
+  background-color: slategrey;
+}
+
+.clearBtn, .delButton {
+  font-size:12pt;
+  background-color: tomato;
+}
+.clearBtn:hover, .clearBtn:active, .delButton:hover, .delButton:active {
+  background-color: red;
+}
+
+@keyframes animateIn {
+  from {
+    transform: scale(0);
+    opacity: 0;
+    /*height: 0px;*/
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+    /*height: 230px;*/
+  }
+}
+
+.moveIn {
+  animation: animateIn 0.5s;
+}
+
+.moveOut {
+  animation: animateIn 0.5s reverse;
+}
+
+.greyBG {
+  background-color: rgba(211, 211, 211, 0.3);
+}
+
+.whiteBG {
+  background-color: rgba(255,255,255,0.5);
+}
+
+.flex-label {
+  width:50%;
+  text-align: right;
+  margin: inherit;
+}
+
+.flex-item {
+  width:50%;
+  text-align: left;
+  margin: inherit;
+}
+
+.flex-center {
+  text-align: center;
+}
+
+.tableLabel {
+  font-weight: bold;
+}
+
+.numBox {
+  font-size: 20pt;
+  width: 70px;
+}

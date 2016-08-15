@@ -54,10 +54,10 @@ divideValues	js/fuelMinderJS-v2.js	/^function divideValues(a, b) {$/;"	f
 numBoxChange	js/fuelMinderJS-v2.js	/^function numBoxChange() {$/;"	f
 newButton.onclick	js/fuelMinderJS-v2.js	/^  newButton.value = " Add Entry ";$/;"	f
 addButton	js/fuelMinderJS-v2.js	/^function addButton() {$/;"	f
-webStore	js/fuelMinderJS-v3.js	/^var webStore = false;$/;"	v
-retrieveInfo	js/fuelMinderJS-v3.js	/^var retrieveInfo = [];$/;"	v
-localStoreName	js/fuelMinderJS-v3.js	/^var localStoreName = "fuelMinder";$/;"	v
-dataArray	js/fuelMinderJS-v3.js	/^var dataArray = [];$/;"	v
+webStore	js/fuelMinderJS-v3.js	/^var webStore;$/;"	v
+retrieveInfo	js/fuelMinderJS-v3.js	/^var retrieveInfo;$/;"	v
+localStoreName	js/fuelMinderJS-v3.js	/^var localStoreName;$/;"	v
+dataArray	js/fuelMinderJS-v3.js	/^var dataArray;$/;"	v
 htmlRun	js/fuelMinderJS-v3.js	/^function htmlRun() {$/;"	f
 checkLocalStorage	js/fuelMinderJS-v3.js	/^function checkLocalStorage() {$/;"	f
 clearLocalStorage	js/fuelMinderJS-v3.js	/^function clearLocalStorage() {$/;"	f
@@ -82,6 +82,10 @@ addLine	js/fuelMinderJS.js	/^function addLine() {$/;"	f
 numBoxChange	js/fuelMinderJS.js	/^function numBoxChange() {$/;"	f
 newButton.onclick	js/fuelMinderJS.js	/^  newButton.value = " Add Entry ";$/;"	f
 addButton	js/fuelMinderJS.js	/^function addButton() {$/;"	f
+localStorageExists	js/localStorageJS.js	/^function localStorageExists() {$/;"	f
+retrieveLocalStorage	js/localStorageJS.js	/^function retrieveLocalStorage(localStoreName) {$/;"	f
+clearLocalStorage	js/localStorageJS.js	/^function clearLocalStorage(localStoreName) {$/;"	f
+saveToLocalStorage	js/localStorageJS.js	/^function saveToLocalStorage(localStoreName, saveItem) {$/;"	f
 fs	js/lz-string-master/bin/bin.js	/^var fs = require('fs');$/;"	v
 name	js/lz-string-master/bower.json	/^  "name": "lz-string",$/;"	f
 version	js/lz-string-master/bower.json	/^  "version": "1.4.4",$/;"	f
@@ -512,3 +516,60 @@ chunk	js/mainJS.js	/^function chunk(str, size) { \/\/Divide the string into arra
 loadListInject	js/mainJS.js	/^function loadListInject(dataRaw, btnPress) {$/;"	f
 updateTextArea	js/mainJS.js	/^function updateTextArea(textAreaID) {$/;"	f
 executeListInject	js/mainJS.js	/^function executeListInject() {$/;"	f
+modal	js/modal-TestJS.js	/^var modal;$/;"	v
+modalIsClosing	js/modal-TestJS.js	/^var modalIsClosing;$/;"	v
+btn	js/modal-TestJS.js	/^var btn;$/;"	v
+span	js/modal-TestJS.js	/^var span;$/;"	v
+textField	js/modal-TestJS.js	/^var textField;$/;"	v
+displayArea	js/modal-TestJS.js	/^var displayArea;$/;"	v
+headerText	js/modal-TestJS.js	/^var headerText;$/;"	v
+modalBody	js/modal-TestJS.js	/^var modalBody;$/;"	v
+modalSender	js/modal-TestJS.js	/^var modalSender;$/;"	v
+modalOpenerArr	js/modal-TestJS.js	/^var modalOpenerArr;$/;"	v
+htmlRun	js/modal-TestJS.js	/^function htmlRun() {$/;"	f
+textField.onchange	js/modal-TestJS.js	/^  modalBody = document.getElementById("modalBody");$/;"	f
+window.onclick	js/modal-TestJS.js	/^  }$/;"	f
+initDoc	js/modal-TestJS.js	/^function initDoc() {$/;"	f
+closeModal.listener	js/modal-TestJS.js	/^  function listener() {$/;"	f
+closeModal	js/modal-TestJS.js	/^function closeModal() {$/;"	f
+localStoreName	js/moneyTrackerJS.js	/^var localStoreName;$/;"	v
+webStore	js/moneyTrackerJS.js	/^var webStore;$/;"	v
+retrieveInfo	js/moneyTrackerJS.js	/^var retrieveInfo;$/;"	v
+localStoreName	js/moneyTrackerJS.js	/^var localStoreName;$/;"	v
+dataArray	js/moneyTrackerJS.js	/^var dataArray;$/;"	v
+modal	js/moneyTrackerJS.js	/^var modal;$/;"	v
+modalIsClosing	js/moneyTrackerJS.js	/^var modalIsClosing;$/;"	v
+openBtn	js/moneyTrackerJS.js	/^var openBtn;$/;"	v
+closeBtn	js/moneyTrackerJS.js	/^var closeBtn;$/;"	v
+textField	js/moneyTrackerJS.js	/^var textField;$/;"	v
+displayArea	js/moneyTrackerJS.js	/^var displayArea;$/;"	v
+headerText	js/moneyTrackerJS.js	/^var headerText;$/;"	v
+modalBody	js/moneyTrackerJS.js	/^var modalBody;$/;"	v
+titleInput	js/moneyTrackerJS.js	/^var titleInput;$/;"	v
+locInput	js/moneyTrackerJS.js	/^var locInput;$/;"	v
+timeInput	js/moneyTrackerJS.js	/^var timeInput;$/;"	v
+costInput	js/moneyTrackerJS.js	/^var costInput;$/;"	v
+modalSender	js/moneyTrackerJS.js	/^var modalSender;$/;"	v
+modalOpenerArr	js/moneyTrackerJS.js	/^var modalOpenerArr;$/;"	v
+editTarget	js/moneyTrackerJS.js	/^var editTarget;$/;"	v
+editingNewEntry	js/moneyTrackerJS.js	/^var editingNewEntry;$/;"	v
+initValues	js/moneyTrackerJS.js	/^function initValues() {$/;"	f
+htmlRun	js/moneyTrackerJS.js	/^function htmlRun() {$/;"	f
+createNewEntry	js/moneyTrackerJS.js	/^function createNewEntry() {$/;"	f
+window.onclick	js/moneyTrackerJS.js	/^  costInput = document.getElementById("costInput");$/;"	f
+initDoc	js/moneyTrackerJS.js	/^function initDoc() {$/;"	f
+openModal	js/moneyTrackerJS.js	/^function openModal(status) {$/;"	f
+closeModal.listener	js/moneyTrackerJS.js	/^  function listener() {$/;"	f
+closeModal	js/moneyTrackerJS.js	/^function closeModal() {$/;"	f
+getContentsFromParentAsArray	js/moneyTrackerJS.js	/^function getContentsFromParentAsArray(parentItem) {$/;"	f
+saveModalChanges	js/moneyTrackerJS.js	/^function saveModalChanges(titleValue, locValue, timeValue, costValue) {$/;"	f
+newDelButton.onclick.listener	js/moneyTrackerJS.js	/^    function listener(f) {$/;"	f
+newDelButton.onclick	js/moneyTrackerJS.js	/^  newDelButton.innerHTML = " Remove Entry ";$/;"	f
+newEditButton.onclick	js/moneyTrackerJS.js	/^  newEditButton.innerHTML = " Edit ";$/;"	f
+addEntryItem	js/moneyTrackerJS.js	/^function addEntryItem() {$/;"	f
+entryUpdate	js/moneyTrackerJS.js	/^function entryUpdate() {$/;"	f
+newButton.onclick	js/moneyTrackerJS.js	/^  newButton.innerHTML = " Add Entry ";$/;"	f
+createAddButton	js/moneyTrackerJS.js	/^function createAddButton() {$/;"	f
+createItemWithClassAndID	js/moneyTrackerJS.js	/^function createItemWithClassAndID(itemType, name, idNum) {$/;"	f
+createDivWithClassAndID	js/moneyTrackerJS.js	/^function createDivWithClassAndID(name, idNum) {$/;"	f
+createInputWithClassAndID	js/moneyTrackerJS.js	/^function createInputWithClassAndID(inputType, name, idNum) {$/;"	f

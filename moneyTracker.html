@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--
+-->
+<html>
+<head>
+  <title>Money Tracker</title>
+  <!-- AJAX Script -->
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script> -->
+  <script src="js/localStorageJS.js"></script>
+  <script src="js/moneyTrackerJS.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/moneyTrackerCSS.css">
+  <link rel="stylesheet" type="text/css" href="css/moneyTracker-modalCSS.css">
+</head>
+
+<body onload="htmlRun();">
+  <div align="center" style="font-family: 'Helvetica Neue', sans-serif" class="titleDiv">
+    <!-- Title Div -->
+    <h1>Money Tracker</h1>
+    <span id="clearBtn" class="button clearBtn" onClick="clearLocalStorage();"> Clear data </span>
+  </div>
+
+  <div id="btnContainer" align="center">
+  </div>
+
+  <div id="mainContainer" align="center">
+  </div>
+
+  <!-- //The Modal -->
+  <div id="myModal" class="modal">
+
+    <!-- //Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <span id="closeBtn" class="close">&times</span>
+        <h2 id="headerText">Modal Header</h2>
+      </div>
+      <div class="modal-body">
+        <div id="modalBody">
+        </div>
+        <div class="cardArea">
+          <div class="detailsInputArea">
+            <div class="titleLabel">Title</div>
+            <input type="text" id="titleInput" class="textInput">
+            <div class="locLabel">Location</div>
+            <input type="text" id="locInput" class="textInput">
+          </br>
+            <input type="button" id="getLocBtn" class="button modalInputBtn" value="get location" align='left'>
+            <div class="timeLabel">Time</div>
+            <input type="text" id="timeInput" class="textInput">
+          </br>
+            <input type="button" id="getTimeBtn" class="button modalInputBtn" value="get time">
+        </div>
+        <div class="modalSpacer"></div>
+        <div class="costInputArea">
+          <div class="titleLabel">How much?</div>
+          <input type="number" id="costInput" class="costTextInput">
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <span id="doneBtn" class="done">Done</span>
+    </div>
+  </div>
+
+</body>
+</html>
