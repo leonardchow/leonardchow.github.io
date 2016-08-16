@@ -14,6 +14,8 @@ function htmlRun() {
 }
 
 function initDoc() {
+
+  copyBtn = document.getElementsByClassName('copyBtn')[0];
   // Get the modal
   modalOpenerArr = document.getElementsByClassName('modalOpener');
   modal = document.getElementById('myModal');
@@ -35,6 +37,11 @@ function initDoc() {
   //     modalBody.innerHTML = "This is the inner content!";
   //     textField.focus();
   // }
+
+  copyBtn.onclick = function() {
+    var newBtn = copyBtn.cloneNode(true);
+    displayArea.appendChild(newBtn);
+  }
 
   textField.onchange = function() {
     displayArea.innerHTML = textField.value;
