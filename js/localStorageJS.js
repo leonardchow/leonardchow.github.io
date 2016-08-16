@@ -1,7 +1,7 @@
 // localStorage methods:
 // retrieveLocalStorage(localStoreName) -> retrieved info
 // clearLocalStorage(localStoreName) -> nothing
-// saveToLocalStorage(localStoreName) -> nothing
+// saveToLocalStorage(localStoreName, saveItem) -> nothing
 function localStorageExists() {
   var storeExists = false;
   if (typeof(Storage) !== "undefined") {
@@ -11,7 +11,7 @@ function localStorageExists() {
 }
 
 function retrieveLocalStorage(localStoreName) {
-  var retrieveInfo = [];
+  var retrieveInfo = null;
   if (localStorageExists()) {
     if (localStorage.getItem(localStoreName) !== null) {
       retrieveInfo = JSON.parse(localStorage.getItem(localStoreName));
