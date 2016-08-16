@@ -1,5 +1,4 @@
 // TO-DO 17 Aug morning:
-// Replace div creation with simple html
 
 // localStorage methods:
 // retrieveLocalStorage(localStoreName) -> retrieved info
@@ -23,6 +22,9 @@ var titleInput;
 var locInput;
 var timeInput;
 var costInput;
+var getLocBtn;
+var getTimeBtn;
+
 var modalSender;
 var modalOpenerArr;
 
@@ -52,7 +54,7 @@ function initValues() {
 function loadFromData(inputDataArray) {
   // Repopulate!
   for (var i = inputDataArray.length-1; i >= 0; i--) {
-    addEntryItem(inputDataArray[i]);
+    addEntryItem(inputDataArray[i], (inputDataArray.length-1-i));
   }
   // Refresh cards:
   entryUpdate();
@@ -82,10 +84,13 @@ function setupModal() {
   timeInput = document.getElementById("timeInput");
   costInput = document.getElementById("costInput");
 
+  // Buttons
+  getLocBtn = document.getElementById("getLocBtn");
+  getTimeBtn = document.getElementById("getTimeBtn");
+
   window.onclick = function(event) {
     //console.log("btn:", openBtn);
     //console.log("event.target:", event.target);
-
     switch(event.target) {
       case modal:
         // Highlight the Done btn
@@ -111,6 +116,11 @@ function setupModal() {
         if (editingNewEntry) {
           editTarget.remove();
         }
+        break;
+      case getLocBtn:
+        break;
+      case getTimeBtn:
+        
         break;
       default:
         // Do nothing.
@@ -195,37 +205,45 @@ function saveModalChanges(titleIn, locIn, timeIn, costIn) {
   return canSaveChanges;
 }
 
-function addEntryItem(withData) {
+function addEntryItem(withData, num) {
   var numOfLines = dataArray.length;
+  if (num != undefined) {
+    numOfLines = num;
+  }
   var mainContainer = document.getElementById('mainContainer');
 
-  // Data Area, Title Row, Location Row
-  var newDataArea = createDivWithClassAndID("dataArea", numOfLines);
-  var newTitleLabel = createDivWithClassAndID("titleLabel", numOfLines);
-  var newTitleContent = createDivWithClassAndID("titleContent", numOfLines);
-  var newLocLabel = createDivWithClassAndID("locLabel", numOfLines);
-  var newLocContent = createDivWithClassAndID("locContent", numOfLines);
-  var newTimeLabel = createDivWithClassAndID("timeLabel", numOfLines);
-  var newTimeContent = createDivWithClassAndID("timeContent", numOfLines);
+  var protoHolder = document.getElementById('protoHolder');
 
-  newTitleLabel.innerHTML = "Name of item"; //CSS >> text-transform:uppercase;
-  newLocLabel.innerHTML = "Location";
-  newTimeLabel.innerHTML = "Time";
+  var entryDiv = protoHolder.getElementsByClassName('entryDivProto');
+  var newEntryDiv = entryDiv[0].cloneNode(true);
 
-  newDataArea.appendChild(newTitleLabel);
-  newDataArea.appendChild(newTitleContent);
-  newDataArea.appendChild(newLocLabel);
-  newDataArea.appendChild(newLocContent);
-  newDataArea.appendChild(newTimeLabel);
-  newDataArea.appendChild(newTimeContent);
+  var entryLabel = newEntryDiv.getElementsByClassName('entryLabel')[0];
+  var cardArea = newEntryDiv.getElementsByClassName('cardArea')[0];
+  var dataArea = newEntryDiv.getElementsByClassName('dataArea')[0];
+  var titleLabel = newEntryDiv.getElementsByClassName('titleLabel')[0];
+  var titleContent = newEntryDiv.getElementsByClassName('titleContent')[0];
+  var locLabel = newEntryDiv.getElementsByClassName('locLabel')[0];
+  var locContent = newEntryDiv.getElementsByClassName('locContent')[0];
+  var timeLabel = newEntryDiv.getElementsByClassName('timeLabel')[0];
+  var timeContent = newEntryDiv.getElementsByClassName('timeContent')[0];
+  var costArea = newEntryDiv.getElementsByClassName('costArea')[0];
+  var delButton = newEntryDiv.getElementsByClassName('delButton')[0];
+  var editButton = newEntryDiv.getElementsByClassName('editButton')[0];
+  newEntryDiv.id += numOfLines;
+  entryLabel.id += numOfLines;
+  cardArea.id += numOfLines;
+  dataArea.id += numOfLines;
+  titleLabel.id += numOfLines;
+  titleContent.id += numOfLines;
+  locLabel.id += numOfLines;
+  locContent.id += numOfLines;
+  timeLabel.id += numOfLines;
+  timeContent.id += numOfLines;
+  costArea.id += numOfLines;
+  delButton.id += numOfLines;
+  editButton.id += numOfLines;
 
-  // Price Area
-  var newCostArea = createDivWithClassAndID("costArea", numOfLines);
-
-  // Delete Button
-  var newDelButton = createItemWithClassAndID('span', "button delButton", numOfLines);
-  newDelButton.innerHTML = " Remove Entry ";
-  newDelButton.onclick = function() {
+  delButton.onclick = function() {
     var e = this.parentElement.parentElement;
 
     e.addEventListener("animationend", listener, false);
@@ -237,43 +255,28 @@ function addEntryItem(withData) {
     }
   }
 
-  // Edit button
-  var newEditButton = createItemWithClassAndID('span', "button delButton", numOfLines);
-  newEditButton.innerHTML = " Edit ";
-  newEditButton.onclick = function() {
+  editButton.onclick = function() {
     var e = this.parentElement.parentElement;
     openModal(e);
     // console.log("Edit this:", e);
   }
 
-  var newLabel = createItemWithClassAndID('span', "entryLabel", numOfLines);
-  newLabel.innerHTML = "Entry " + numOfLines;
-
-  // Card Area
-  var newCardArea = createDivWithClassAndID("cardArea", numOfLines);
-  //remember to set to flex-container type thing!
-  newCardArea.appendChild(newDataArea);
-  newCardArea.appendChild(newCostArea);
-  newCardArea.appendChild(newDelButton);
-  newCardArea.appendChild(newEditButton);
-
-  var newEntryDiv = createDivWithClassAndID("entryDiv", numOfLines);
-  newEntryDiv.classList.add("moveIn");
-  newEntryDiv.appendChild(newLabel);
-  newEntryDiv.appendChild(newCardArea);
-
   if (withData != undefined) {
     // Populate options with data
-    newTitleContent.innerHTML = withData[0];
-    newLocContent.innerHTML = withData[1];
-    newTimeContent.innerHTML = withData[2];
-    newCostArea.innerHTML = withData[3];
+    titleContent.innerHTML = withData[0];
+    locContent.innerHTML = withData[1];
+    timeContent.innerHTML = withData[2];
+    costArea.innerHTML = withData[3];
   } else {
     // New item
     dataArray.push([0,0,0,0]);
   }
 
   var latestEntries = document.getElementsByClassName("entryDiv");
+
+  newEntryDiv.classList.remove('entryDivProto');
+  newEntryDiv.classList.add('entryDiv');
+  newEntryDiv.classList.add('moveIn');
 
   mainContainer.insertBefore(newEntryDiv, latestEntries[0]);
 }

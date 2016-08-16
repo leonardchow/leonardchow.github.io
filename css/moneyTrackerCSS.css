@@ -15,6 +15,9 @@
   margin: 20px;
 }
 
+.hiddenDiv {
+  display: none; /* Hidden by default */
+}
 
 .entryDiv {
   padding-bottom:15px;
@@ -38,7 +41,12 @@
   width: 33%;
 }
 
+.spacer {
+  padding: 20px;
+}
+
 .button {
+  width: auto;
   font-size: 20pt;
   color: white;
   background-color: slateblue;
@@ -68,6 +76,21 @@
 }
 .clearBtn:hover, .clearBtn:active, .delButton:hover, .delButton:active {
   background-color: red;
+}
+
+.editBtnArea {
+  height: 100%;
+}
+
+.editButton {
+  width: 30%;
+  font-size:11pt;
+  background-color: cadetblue;
+  margin-bottom:30px;
+}
+
+.editButton:hover, .editButton:active {
+  background-color: teal;
 }
 
 @keyframes animateIn {
