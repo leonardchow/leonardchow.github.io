@@ -424,7 +424,7 @@ function getLocBtnFn() {
   }
 
   function showPosition(position) {
-    var googleMapURL = "http://maps.googleapis.com/maps/api/geocode/json?latlng=";
+    var googleMapURL = "http://maps-api-ssl.google.com/maps/api/geocode/json?latlng=";
     var googleMapURLSuffix = "&sensor=false";
     var googleMapRequest = googleMapURL + position.coords.latitude + "," + position.coords.longitude + googleMapURLSuffix;
     console.log(googleMapRequest);
