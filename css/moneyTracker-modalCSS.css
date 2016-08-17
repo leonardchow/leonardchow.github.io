@@ -1,3 +1,15 @@
+/*Styles*/
+.highlightYellow {
+  background-color: rgb(255,230,180);
+}
+
+.modalSpacer {
+  width: 0px;
+  height: 100px;
+  border: 1px solid lightgrey;
+  margin: 10%;
+}
+/*Inputs areas*/
 .detailsInputArea {
   text-align: left;
 }
@@ -6,10 +18,13 @@
   width: 200px;
 }
 
-.highlightYellow {
-  background-color: rgb(255,230,180);
+.costTextInput {
+  font-size:20px;
+  height:50px;
+  width:100px;
 }
 
+/*Buttons*/
 #myBtn {
   font-size: 20px;
   border: none;
@@ -26,24 +41,44 @@
 }
 
 .modalInputBtn {
+  /*This goes after initial set to set the original color ONLY*/
   background-color: slategrey;
 }
 
-.modalSpacer {
-  width: 0px;
-  height: 100px;
-  border: 1px solid lightgrey;
-  margin: 10%;
+.close {
+  /* The Close Button */
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
 }
 
-#displayArea {
-  margin-top: 20px;
+.close:hover,
+.close:focus {
+  /* The Close Button */
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
 }
 
-.costTextInput {
-  font-size:20px;
-  height:50px;
-  width:100px;
+.done {
+  /* The Done Button */
+  background-color: green;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.done:hover,
+.done:focus {
+  /* The Done Button */
+  background-color: lightgreen;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 /* The Modal (background) */
@@ -58,6 +93,7 @@
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    
     -webkit-animation-name: fadeIn; /* Fade in the background */
     -webkit-animation-duration: 0.4s;
     animation-name: fadeIn;
@@ -72,61 +108,15 @@
     margin: 15% auto;
     background-color: #fefefe;
     width: 500px;
+    border-radius: 25px;
+
     -webkit-animation-name: fadeIn;
     -webkit-animation-duration: 0.4s;
     animation-name: fadeIn;
     animation-duration: 0.4s;
-    border-radius: 25px;
 }
 
-.modalFade {
-  animation: fadeIn 0.1s reverse;
-}
-
-/* The Close Button */
-.close {
-    color: white;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/* The Done Button */
-.done {
-  background-color: green;
-  padding: 10px;
-  margin: 10px;
-  border-radius: 10px;
-  color: white;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.done:hover,
-.done:focus {
-  background-color: lightgreen;
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.donePulse {
-  animation-name: donePulseAnim;
-  animation-duration: 0.6s;
-}
-
-@keyframes donePulseAnim {
-  0% {background-color: green}
-  50% {background-color: lightgreen}
-  100% {background-color: green}
-}
+ /* Other Modal Elements */
 
 .modal-header {
     padding: 2px 16px;
@@ -145,7 +135,19 @@
     border-radius: 0 0 20px 20px;
 }
 
-/* Add Animation */
+/* Animations */
+.donePulse {
+  animation-name: donePulseAnim;
+  animation-duration: 0.6s;
+  -webkit-animation-name: donePulseAnim;
+  -webkit-animation-duration: 0.6s;
+}
+
+.modalFade {
+  animation: fadeIn 0.1s reverse;
+  -webkit-animation: fadeIn 0.1s reverse;
+}
+
 @-webkit-keyframes slideIn {
     from {bottom: -300px; opacity: 0}
     to {bottom: 0; opacity: 1}
@@ -164,4 +166,16 @@
 @keyframes fadeIn {
     from {opacity: 0}
     to {opacity: 1}
+}
+
+@-webkit-keyframes donePulseAnim {
+  0% {background-color: green}
+  50% {background-color: lightgreen}
+  100% {background-color: green}
+}
+
+@keyframes donePulseAnim {
+  0% {background-color: green}
+  50% {background-color: lightgreen}
+  100% {background-color: green}
 }

@@ -1,20 +1,11 @@
-.titleLabel, .locLabel, .timeLabel {
-  font-size: 10pt;
-  font-weight: bold;
-  color: grey;
-  text-transform: uppercase;
-  justify-content: left;
-  text-align: left;
-}
-
-/*OLD*/
-
+/*Specific items*/
 #mainContainer, #btnContainer {
   font-family:sans-serif;
   font-size: 20pt;
   margin: 20px;
 }
 
+/*Start of Divs*/
 .hiddenDiv {
   display: none; /* Hidden by default */
 }
@@ -45,6 +36,33 @@
   padding: 20px;
 }
 
+.greyBG {
+  background-color: rgba(211, 211, 211, 0.3);
+}
+
+.whiteBG {
+  background-color: rgba(255,255,255,0.5);
+}
+/*End of Divs*/
+
+/*Start of Labels*/
+.titleLabel, .locLabel, .timeLabel {
+  font-size: 10pt;
+  font-weight: bold;
+  color: grey;
+  text-transform: uppercase;
+  justify-content: left;
+  text-align: left;
+}
+
+/*End of Labels*/
+
+/*Start of Buttons*/
+.numBox {
+  font-size: 20pt;
+  width: 70px;
+}
+
 .button {
   width: auto;
   font-size: 20pt;
@@ -57,7 +75,9 @@
   padding: 5px;
   border-radius: 4px;
   box-shadow: 0px 5px 10px 0px rgba(0,0,0, 0.3);
+  
   transition-duration: 0.2s;
+  -webkit-transition-duration: 0.2s;
 }
 
 .button:hover {
@@ -94,6 +114,21 @@
 .editButton:hover, .editButton:active {
   background-color: teal;
 }
+/*End of Buttons*/
+
+/*Animations*/
+@-webkit-keyframes animateIn {
+  from {
+    transform: scale(0);
+    opacity: 0;
+    /*height: 0px;*/
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+    /*height: 230px;*/
+  }
+}
 
 @keyframes animateIn {
   from {
@@ -110,41 +145,10 @@
 
 .moveIn {
   animation: animateIn 0.5s;
+  -webkit-animation: animateIn 0.5s;
 }
 
 .moveOut {
   animation: animateIn 0.5s reverse;
-}
-
-.greyBG {
-  background-color: rgba(211, 211, 211, 0.3);
-}
-
-.whiteBG {
-  background-color: rgba(255,255,255,0.5);
-}
-
-.flex-label {
-  width:50%;
-  text-align: right;
-  margin: inherit;
-}
-
-.flex-item {
-  width:50%;
-  text-align: left;
-  margin: inherit;
-}
-
-.flex-center {
-  text-align: center;
-}
-
-.tableLabel {
-  font-weight: bold;
-}
-
-.numBox {
-  font-size: 20pt;
-  width: 70px;
+  -webkit-animation: animateIn 0.5s reverse;
 }
