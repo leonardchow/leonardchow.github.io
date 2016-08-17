@@ -17,18 +17,19 @@
   <div align="center" style="font-family: 'Helvetica Neue', sans-serif" class="titleDiv">
     <!-- Title Div -->
     <h1>Money Tracker</h1>
+  </div>
+
+  <div id="btnContainer" class="display" align="center">
+  </div>
+
+  <div id="mainContainer" class="display" align="center">
+  </div>
+  <div class="display" align="center">
     <span id="clearBtn" class="button clearBtn" onClick="clearLocalStorage(localStoreName);"> Clear data </span>
   </div>
 
-  <div id="btnContainer" align="center">
-  </div>
-
-  <div id="mainContainer" align="center">
-  </div>
-
   <!-- //The Modal -->
-  <div id="myModal" class="modal">
-
+  <div id="myModal" class="modal" onClick="modalBgFn(event);">
     <!-- //Modal content -->
     <div class="modal-content">
       <div class="modal-header">
@@ -40,12 +41,12 @@
         </div>
         <div class="cardArea">
           <div class="detailsInputArea">
-            <div class="titleLabel">Title</div>
+            <div class="titleLabel">Name of item</div>
             <input type="text" id="titleInput" class="textInput">
-            <div class="locLabel">Location</div>
+            <div class="locLabel">Place</div>
             <input type="text" id="locInput" class="textInput">
           </br>
-            <input type="button" id="getLocBtn" class="button modalInputBtn" value="get location" align='left' onClick="getLocBtnFn();">
+            <!-- <input type="button" id="getLocBtn" class="button modalInputBtn" value="get location" align='left' onClick="getLocBtnFn();"> -->
             <div class="timeLabel">Time</div>
             <input type="text" id="timeInput" class="textInput">
           </br>
@@ -53,7 +54,7 @@
         </div>
         <div class="modalSpacer"></div>
         <div class="costInputArea">
-          <div class="titleLabel">How much?</div>
+          <div class="costLabel">How much?</div>
           <input type="text" id="costInput" class="costTextInput" onkeypress="return wasKeyANumber(event);">
         </div>
       </div>
@@ -70,13 +71,13 @@
     <div id="cardArea" class="cardArea">
       <div id="dataArea" class="dataArea">
         <div id="titleLabel" class="titleLabel">Name of item</div>
-        <div id="titleContent" class="titleContent">First</div>
-        <div id="locLabel" class="locLabel">Location</div>
-        <div id="locContent" class="locContent">a</div>
+        <div id="titleContent" class="titleContent">TitleContent</div>
+        <div id="locLabel" class="locLabel">Place</div>
+        <div id="locContent" class="locContent">LocationContet</div>
         <div id="timeLabel" class="timeLabel">Time</div>
-        <div id="timeContent" class="timeContent">s</div>
+        <div id="timeContent" class="timeContent">TimeContent</div>
       </div>
-      <div id="costArea" class="costArea">1</div>
+      <div id="costArea" class="costArea">CostContent</div>
       <div class="dataArea">
         <div id="editButton" class="button editButton" onClick="editBtnFn(event);"> Edit </div>
         <div id="delButton" class="button delButton" onClick="delBtnFn(event);"> Remove Entry </div>

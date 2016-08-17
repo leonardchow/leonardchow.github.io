@@ -559,8 +559,6 @@ editingNewEntry	js/moneyTrackerJS-v2.js	/^var editingNewEntry;$/;"	v
 htmlRun	js/moneyTrackerJS-v2.js	/^function htmlRun() {$/;"	f
 initValues	js/moneyTrackerJS-v2.js	/^function initValues() {$/;"	f
 loadFromData	js/moneyTrackerJS-v2.js	/^function loadFromData(inputDataArray) {$/;"	f
-function.listener	js/moneyTrackerJS-v2.js	/^        function listener() {$/;"	f
-window.onclick	js/moneyTrackerJS-v2.js	/^  getTimeBtn = document.getElementById("getTimeBtn");$/;"	f
 setupModal	js/moneyTrackerJS-v2.js	/^function setupModal() {$/;"	f
 openModal	js/moneyTrackerJS-v2.js	/^function openModal(status) {$/;"	f
 closeModal.listener	js/moneyTrackerJS-v2.js	/^  function listener() {$/;"	f
@@ -580,6 +578,8 @@ delBtnFn	js/moneyTrackerJS-v2.js	/^function delBtnFn(sender) {$/;"	f
 editBtnFn	js/moneyTrackerJS-v2.js	/^function editBtnFn(sender) {$/;"	f
 modalCloseBtnFn	js/moneyTrackerJS-v2.js	/^function modalCloseBtnFn() {$/;"	f
 modalDoneBtnFn	js/moneyTrackerJS-v2.js	/^function modalDoneBtnFn() {$/;"	f
+function.listener	js/moneyTrackerJS-v2.js	/^    function listener() {$/;"	f
+modalBgFn	js/moneyTrackerJS-v2.js	/^function modalBgFn(sender) {$/;"	f
 getTimeBtnFn	js/moneyTrackerJS-v2.js	/^function getTimeBtnFn() {$/;"	f
 getLocBtnFn.options.enableHighAccuracy	js/moneyTrackerJS-v2.js	/^  var options = {$/;"	p
 getLocBtnFn.options.timeout	js/moneyTrackerJS-v2.js	/^    enableHighAccuracy: true,$/;"	p

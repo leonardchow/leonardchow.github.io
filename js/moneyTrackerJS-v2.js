@@ -1,4 +1,5 @@
-// TO-DO 17 Aug morning:
+// TO-DO 17 Aug:
+// Add $ sign!
 
 // localStorage methods:
 // retrieveLocalStorage(localStoreName) -> retrieved info
@@ -88,42 +89,30 @@ function setupModal() {
   getLocBtn = document.getElementById("getLocBtn");
   getTimeBtn = document.getElementById("getTimeBtn");
 
-  window.onclick = function(event) {
-    //console.log("btn:", openBtn);
-    //console.log("event.target:", event.target);
-    switch(event.target) {
-      case modal:
-        // Highlight the Done btn
-        doneBtn.addEventListener("animationend", listener, false);
-        doneBtn.classList.add('donePulse');
-        function listener() {
-          // When animation is done, remove the donePulse class!
-          doneBtn.classList.remove('donePulse');
-          }
-        break;
-      case doneBtn:
-        // Modal was closed & Saved.
-        // Check if all fields are filled -> save & close
-        break;
-      case openBtn:
-        // Modal was opened!
-        openModal("newEntry");
-        getTimeBtnFn();
-        getLocBtnFn();
-        break;
-      case closeBtn:
-        // Modal edit was cancelled!
-        break;
-      case getLocBtn:
-        break;
-      case getTimeBtn:
-
-        break;
-      default:
-        // Do nothing.
-        break;
-    }
-  }
+  // window.onclick = function(event) {
+  //   //console.log("btn:", openBtn);
+  //   //console.log("event.target:", event.target);
+  //   switch(event.target) {
+  //     case modal:
+  //       break;
+  //     case doneBtn:
+  //       // Modal was closed & Saved.
+  //       // Check if all fields are filled -> save & close
+  //       break;
+  //     case openBtn:
+  //       break;
+  //     case closeBtn:
+  //       // Modal edit was cancelled!
+  //       break;
+  //     case getLocBtn:
+  //       break;
+  //     case getTimeBtn:
+  //       break;
+  //     default:
+  //       // Do nothing.
+  //       break;
+  //   }
+  // }
 }
 
 function openModal(status) {
@@ -312,6 +301,11 @@ function createAddButton() {
   newButton.onclick = function() {
     //console.log("new Entry added");
     addEntryItem();
+
+    // Modal was opened!
+    openModal("newEntry");
+    getTimeBtnFn();
+    getLocBtnFn();
   };
   btnContainer.appendChild(newButton);
 }
@@ -377,6 +371,18 @@ function modalDoneBtnFn() {
   saveModalChanges(titleInput, locInput, timeInput, costInput);
 }
 
+function modalBgFn(sender) {
+  // Highlight the Done btn
+  if (sender.target.id == "myModal") {
+    doneBtn.addEventListener("animationend", listener, false);
+    doneBtn.classList.add('donePulse');
+    function listener() {
+      // When animation is done, remove the donePulse class!
+      doneBtn.classList.remove('donePulse');
+    }
+  }
+}
+
 function getTimeBtnFn() {
   var currentDate = new Date();
   console.log(currentDate, typeof(currentDate));
@@ -411,8 +417,8 @@ function getLocBtnFn() {
     timeout: 5000,
     maximumAge: 0
   };
-
-  getLocation();
+  //Doesn't work on the actual web!
+  //getLocation();
 
   function getLocation() {
     if (navigator.geolocation) {
