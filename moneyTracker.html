@@ -32,7 +32,7 @@
     <!-- //Modal content -->
     <div class="modal-content">
       <div class="modal-header">
-        <span id="closeBtn" class="close">&times</span>
+        <span id="closeBtn" class="close" onClick="modalCloseBtnFn();">&times</span>
         <h2 id="headerText">Modal Header</h2>
       </div>
       <div class="modal-body">
@@ -45,11 +45,11 @@
             <div class="locLabel">Location</div>
             <input type="text" id="locInput" class="textInput">
           </br>
-            <input type="button" id="getLocBtn" class="button modalInputBtn" value="get location" align='left'>
+            <input type="button" id="getLocBtn" class="button modalInputBtn" value="get location" align='left' onClick="getLocBtnFn();">
             <div class="timeLabel">Time</div>
             <input type="text" id="timeInput" class="textInput">
           </br>
-            <input type="button" id="getTimeBtn" class="button modalInputBtn" value="get time">
+            <input type="button" id="getTimeBtn" class="button modalInputBtn" value="get time" onClick="getTimeBtnFn();">
         </div>
         <div class="modalSpacer"></div>
         <div class="costInputArea">
@@ -59,10 +59,11 @@
       </div>
     </div>
     <div class="modal-footer">
-      <span id="doneBtn" class="done">Done</span>
+      <span id="doneBtn" class="done" onClick="modalDoneBtnFn();">Done</span>
     </div>
   </div>
 </div>
+<!-- Prototype Card -->
 <div id="protoHolder" class="hiddenDiv">
   <div id="entryDiv" class="entryDivProto">
     <span id="entryLabel" class="entryLabel">Entry 1</span>
@@ -77,8 +78,8 @@
       </div>
       <div id="costArea" class="costArea">1</div>
       <div class="dataArea">
-        <div id="editButton" class="button editButton"> Edit </div>
-        <div id="delButton" class="button delButton"> Remove Entry </div>
+        <div id="editButton" class="button editButton" onClick="editBtnFn(event);"> Edit </div>
+        <div id="delButton" class="button delButton" onClick="delBtnFn(event);"> Remove Entry </div>
       </div>
     </div>
   </div>

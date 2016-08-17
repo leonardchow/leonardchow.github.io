@@ -567,9 +567,6 @@ closeModal.listener	js/moneyTrackerJS-v2.js	/^  function listener() {$/;"	f
 closeModal	js/moneyTrackerJS-v2.js	/^function closeModal() {$/;"	f
 getContentsFromParentAsArray	js/moneyTrackerJS-v2.js	/^function getContentsFromParentAsArray(parentItem) {$/;"	f
 saveModalChanges	js/moneyTrackerJS-v2.js	/^function saveModalChanges(titleIn, locIn, timeIn, costIn) {$/;"	f
-delButton.onclick.listener	js/moneyTrackerJS-v2.js	/^    function listener(f) {$/;"	f
-delButton.onclick	js/moneyTrackerJS-v2.js	/^  editButton.id += numOfLines;$/;"	f
-editButton.onclick	js/moneyTrackerJS-v2.js	/^  }$/;"	f
 addEntryItem	js/moneyTrackerJS-v2.js	/^function addEntryItem(withData, num) {$/;"	f
 entryUpdate	js/moneyTrackerJS-v2.js	/^function entryUpdate() {$/;"	f
 newButton.onclick	js/moneyTrackerJS-v2.js	/^  newButton.innerHTML = " Add Entry ";$/;"	f
@@ -578,6 +575,21 @@ createItemWithClassAndID	js/moneyTrackerJS-v2.js	/^function createItemWithClassA
 createDivWithClassAndID	js/moneyTrackerJS-v2.js	/^function createDivWithClassAndID(name, idNum) {$/;"	f
 createInputWithClassAndID	js/moneyTrackerJS-v2.js	/^function createInputWithClassAndID(inputType, name, idNum) {$/;"	f
 wasKeyANumber	js/moneyTrackerJS-v2.js	/^function wasKeyANumber(e) {$/;"	f
+delBtnFn.listener	js/moneyTrackerJS-v2.js	/^  function listener(f) {$/;"	f
+delBtnFn	js/moneyTrackerJS-v2.js	/^function delBtnFn(sender) {$/;"	f
+editBtnFn	js/moneyTrackerJS-v2.js	/^function editBtnFn(sender) {$/;"	f
+modalCloseBtnFn	js/moneyTrackerJS-v2.js	/^function modalCloseBtnFn() {$/;"	f
+modalDoneBtnFn	js/moneyTrackerJS-v2.js	/^function modalDoneBtnFn() {$/;"	f
+getTimeBtnFn	js/moneyTrackerJS-v2.js	/^function getTimeBtnFn() {$/;"	f
+getLocBtnFn.options.enableHighAccuracy	js/moneyTrackerJS-v2.js	/^  var options = {$/;"	p
+getLocBtnFn.options.timeout	js/moneyTrackerJS-v2.js	/^    enableHighAccuracy: true,$/;"	p
+getLocBtnFn.options.maximumAge	js/moneyTrackerJS-v2.js	/^    timeout: 5000,$/;"	p
+getLocBtnFn.getLocation	js/moneyTrackerJS-v2.js	/^  function getLocation() {$/;"	f
+getLocBtnFn.showPosition	js/moneyTrackerJS-v2.js	/^  function showPosition(position) {$/;"	f
+getLocBtnFn.showError	js/moneyTrackerJS-v2.js	/^  function showError(error) {$/;"	f
+getLocBtnFn	js/moneyTrackerJS-v2.js	/^function getLocBtnFn() {$/;"	f
+xhr.onreadystatechange	js/moneyTrackerJS-v2.js	/^    var xhr = new XMLHttpRequest();$/;"	f
+loadJSON	js/moneyTrackerJS-v2.js	/^function loadJSON(path, success, error) {$/;"	f
 localStoreName	js/moneyTrackerJS.js	/^var localStoreName;$/;"	v
 webStore	js/moneyTrackerJS.js	/^var webStore;$/;"	v
 retrieveInfo	js/moneyTrackerJS.js	/^var retrieveInfo;$/;"	v

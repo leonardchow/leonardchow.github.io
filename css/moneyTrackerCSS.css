@@ -73,6 +73,7 @@
 .clearBtn, .delButton {
   font-size:12pt;
   background-color: tomato;
+  cursor: pointer;
 }
 .clearBtn:hover, .clearBtn:active, .delButton:hover, .delButton:active {
   background-color: red;
@@ -83,6 +84,7 @@
 }
 
 .editButton {
+  cursor: pointer;
   width: 30%;
   font-size:11pt;
   background-color: cadetblue;

@@ -104,23 +104,20 @@ function setupModal() {
       case doneBtn:
         // Modal was closed & Saved.
         // Check if all fields are filled -> save & close
-        saveModalChanges(titleInput, locInput, timeInput, costInput);
         break;
       case openBtn:
         // Modal was opened!
         openModal("newEntry");
+        getTimeBtnFn();
+        getLocBtnFn();
         break;
       case closeBtn:
         // Modal edit was cancelled!
-        closeModal();
-        if (editingNewEntry) {
-          editTarget.remove();
-        }
         break;
       case getLocBtn:
         break;
       case getTimeBtn:
-        
+
         break;
       default:
         // Do nothing.
@@ -155,6 +152,8 @@ function openModal(status) {
 
 
 function closeModal() {
+  var iterableArr = [titleInput, locInput, timeInput, costInput];
+
   modal.addEventListener("animationend", listener, false);
 
   modal.classList.add("modalFade");
@@ -166,6 +165,11 @@ function closeModal() {
       modal.style.display = "none";
       modalIsClosing = false;
     }
+  }
+
+  // Reset input highlights
+  for (var i = 0; i < iterableArr.length; i ++) {
+    iterableArr[i].classList.remove("highlightYellow");
   }
 }
 
@@ -182,6 +186,7 @@ function getContentsFromParentAsArray(parentItem) {
 function saveModalChanges(titleIn, locIn, timeIn, costIn) {
   var canSaveChanges = false;
   //console.log(titleIn.value);
+  //console.log(dataArray);
   var iterableArr = [titleIn, locIn, timeIn, costIn];
   if (titleIn.value == "" || locIn.value == "" || timeIn.value == "" || costIn.value == "") {
     // Don't save if any one is not filled in!
@@ -195,13 +200,13 @@ function saveModalChanges(titleIn, locIn, timeIn, costIn) {
   } else {
     var latestContent = getContentsFromParentAsArray(editTarget);
     for (var i = 0; i < iterableArr.length; i ++) {
-      iterableArr[i].classList.remove("highlightYellow");
       latestContent[i].innerHTML = iterableArr[i].value;
     }
     canSaveChanges = true;
+    entryUpdate();
     closeModal();
   }
-  entryUpdate();
+  //console.log(dataArray);
   return canSaveChanges;
 }
 
@@ -242,24 +247,6 @@ function addEntryItem(withData, num) {
   costArea.id += numOfLines;
   delButton.id += numOfLines;
   editButton.id += numOfLines;
-
-  delButton.onclick = function() {
-    var e = this.parentElement.parentElement;
-
-    e.addEventListener("animationend", listener, false);
-    e.classList.add('moveOut');
-
-    function listener(f) {
-      e.remove();
-      entryUpdate();
-    }
-  }
-
-  editButton.onclick = function() {
-    var e = this.parentElement.parentElement;
-    openModal(e);
-    // console.log("Edit this:", e);
-  }
 
   if (withData != undefined) {
     // Populate options with data
@@ -359,4 +346,142 @@ function wasKeyANumber(e) {
     validKey = ((eventKey >= 48 && eventKey <= 57) || eventKey == 46);
   }
   return validKey;
+}
+
+function delBtnFn(sender) {
+  var e = sender.target.parentElement.parentElement.parentElement;
+
+  e.addEventListener("animationend", listener, false);
+  e.classList.add('moveOut');
+
+  function listener(f) {
+    e.remove();
+    entryUpdate();
+  }
+}
+
+function editBtnFn(sender) {
+  var e = sender.target.parentElement.parentElement;
+  openModal(e);
+  // console.log("Edit this:", e);
+}
+
+function modalCloseBtnFn() {
+  closeModal();
+  if (editingNewEntry) {
+    editTarget.remove();
+  }
+}
+
+function modalDoneBtnFn() {
+  saveModalChanges(titleInput, locInput, timeInput, costInput);
+}
+
+function getTimeBtnFn() {
+  var currentDate = new Date();
+  console.log(currentDate, typeof(currentDate));
+  var fDate = String(currentDate).split(" ");
+  var fTime = String(fDate[4]).split(":");
+
+  var day = fDate[0];
+  var date = fDate[2];
+  var month = fDate[1];
+  var year = fDate[3];
+  var hrs24 = fTime[0];
+  var mins = fTime[1];
+  var secs = fTime[2];
+
+  // Convert hours:
+  var hrs = hrs24;
+  var amPM = "am";
+  if (hrs24 > 12) {
+    var hrs = hrs24 - 12;
+    var amPM = "pm";
+  }
+
+  var returnedDate = hrs +":"+ mins + amPM +" on "+ date +" "+ month +" "+ year;
+  timeInput.value = returnedDate;
+}
+
+function getLocBtnFn() {
+  var locationResult = "";
+  locInput.value = locationResult;
+  var options = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0
+  };
+
+  getLocation();
+
+  function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError, options);
+    } else {
+        locationResult = "Geolocation is not supported by this browser.";
+        locInput.value = locationResult;
+    }
+  }
+
+  function showPosition(position) {
+    var googleMapURL = "http://maps.googleapis.com/maps/api/geocode/json?latlng=";
+    var googleMapURLSuffix = "&sensor=false";
+    var googleMapRequest = googleMapURL + position.coords.latitude + "," + position.coords.longitude + googleMapURLSuffix;
+    console.log(googleMapRequest);
+    loadJSON(googleMapRequest,
+       function(data) {
+         console.log(data);
+         if (data['status'] == "OK") {
+           locationResult = data['results'][0]['formatted_address'];
+         } else {
+           locationResult = "Try Again: An error occured with the Google Maps API.";
+         }
+         console.log("locationResultInside:", locationResult);
+         locInput.value = locationResult;
+       },
+       function(xhr) {
+         console.error("ERROR: " + xhr);
+         locationResult = "Try Again: An error occured with the HTTP Request.";
+         locInput.value = locationResult;
+     });
+  }
+
+  function showError(error) {
+    switch(error.code) {
+      case error.PERMISSION_DENIED:
+        locationResult = "Please reload: User denied the request for Geolocation."
+        console.log("locationResultInside:", locationResult);
+
+        break;
+      case error.POSITION_UNAVAILABLE:
+        locationResult = "Location information is unavailable."
+        break;
+      case error.TIMEOUT:
+        locationResult = "The request to get user location timed out."
+        break;
+      case error.UNKNOWN_ERROR:
+        locationResult = "An unknown error occurred."
+        break;
+    }
+    locInput.value = locationResult;
+  }
+}
+
+function loadJSON(path, success, error) {
+  // In lieu of JSON's .get()!
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function()
+    {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                if (success)
+                    success(JSON.parse(xhr.responseText));
+            } else {
+                if (error)
+                    error(xhr);
+            }
+        }
+    };
+    xhr.open("GET", path, true);
+    xhr.send();
 }
