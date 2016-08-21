@@ -1,13 +1,13 @@
 /*Specific items*/
-#mainContainer, #btnContainer {
-
-}
+/*EMPTY*/
 
 /*Start of Divs*/
 .display {
   font-family:sans-serif;
   font-size: 20pt;
-  margin: 20px;
+  margin: auto;
+  text-align: center;
+  padding: 5px;
 }
 
 .hiddenDiv {
@@ -15,13 +15,16 @@
 }
 
 .entryDiv {
-  padding-bottom:15px;
   overflow-x:auto;
 
   max-width: 400px;
   border: 1px solid lightgray;
   padding: 10px;
-  margin-bottom: 10px;
+  padding-bottom:15px;
+
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
   border-radius: 10px;
 }
 
@@ -32,8 +35,16 @@
   align-items: center;
 }
 
-.costArea, .dataArea {
-  width: 33%;
+.costArea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  padding: 5px;
+}
+
+.dataArea {
+ width: 50%;
 }
 
 .spacer {
@@ -50,23 +61,34 @@
 /*End of Divs*/
 
 /*Start of Content*/
+.content {
+  text-align: left;
+}
+
 .timeContent {
   font-size: 12px;
+}
+
+.costContet {
+  padding: 5px;
 }
 /*End of Content*/
 
 /*Start of Labels*/
-.titleLabel, .locLabel, .timeLabel, .costLabel{
+.label{
   font-size: 10pt;
   font-weight: bold;
   color: grey;
   text-transform: uppercase;
-  justify-content: left;
   text-align: left;
 }
 
 .costLabel {
   text-align: center;
+}
+
+.costDollarLabel {
+  font-size: 100%;
 }
 
 /*End of Labels*/

@@ -123,6 +123,7 @@ function openModal(status) {
     locInput.value = "";
     timeInput.value = "";
     costInput.value = "";
+    headerText.innerHTML = "New entry";
   } else {
     editTarget = status;
     editingNewEntry = false;
@@ -131,11 +132,11 @@ function openModal(status) {
     locInput.value = fillWithContent[1].innerHTML;
     timeInput.value = fillWithContent[2].innerHTML;
     costInput.value = fillWithContent[3].innerHTML;
+    headerText.innerHTML = "Edit entry";
   }
   //console.log("the sender was the modal opener button");
   modal.style.display = "block";
-  headerText.innerHTML = "Button clicked";
-  modalBody.innerHTML = "This is the inner content!";
+  modalBody.innerHTML = "";
   titleInput.focus();
 }
 
@@ -168,7 +169,7 @@ function getContentsFromParentAsArray(parentItem) {
   contentsArray[0] = parentItem.getElementsByClassName("titleContent")[0];
   contentsArray[1] = parentItem.getElementsByClassName("locContent")[0];
   contentsArray[2] = parentItem.getElementsByClassName("timeContent")[0];
-  contentsArray[3] = parentItem.getElementsByClassName("costArea")[0];
+  contentsArray[3] = parentItem.getElementsByClassName("costContent")[0];
   return contentsArray;
 }
 
@@ -211,6 +212,8 @@ function addEntryItem(withData, num) {
   var entryDiv = protoHolder.getElementsByClassName('entryDivProto');
   var newEntryDiv = entryDiv[0].cloneNode(true);
 
+  // var newEntryDiv = newEntryDivHolder.getElementsByClassName('entryDivProto')[0];
+
   var entryLabel = newEntryDiv.getElementsByClassName('entryLabel')[0];
   var cardArea = newEntryDiv.getElementsByClassName('cardArea')[0];
   var dataArea = newEntryDiv.getElementsByClassName('dataArea')[0];
@@ -221,6 +224,8 @@ function addEntryItem(withData, num) {
   var timeLabel = newEntryDiv.getElementsByClassName('timeLabel')[0];
   var timeContent = newEntryDiv.getElementsByClassName('timeContent')[0];
   var costArea = newEntryDiv.getElementsByClassName('costArea')[0];
+  var costDollarLabel = newEntryDiv.getElementsByClassName('costDollarLabel')[0];
+  var costContent = newEntryDiv.getElementsByClassName('costContent')[0];
   var delButton = newEntryDiv.getElementsByClassName('delButton')[0];
   var editButton = newEntryDiv.getElementsByClassName('editButton')[0];
   newEntryDiv.id += numOfLines;
@@ -234,6 +239,8 @@ function addEntryItem(withData, num) {
   timeLabel.id += numOfLines;
   timeContent.id += numOfLines;
   costArea.id += numOfLines;
+  costDollarLabel.id += numOfLines;
+  costContent.id += numOfLines;
   delButton.id += numOfLines;
   editButton.id += numOfLines;
 
@@ -242,7 +249,7 @@ function addEntryItem(withData, num) {
     titleContent.innerHTML = withData[0];
     locContent.innerHTML = withData[1];
     timeContent.innerHTML = withData[2];
-    costArea.innerHTML = withData[3];
+    costContent.innerHTML = withData[3];
   } else {
     // New item
     dataArray.push([0,0,0,0]);
@@ -267,7 +274,7 @@ function entryUpdate() {
   var titleData = document.getElementsByClassName('titleContent');
   var locData = document.getElementsByClassName('locContent');
   var timeData = document.getElementsByClassName('timeContent');
-  var costData = document.getElementsByClassName('costArea');
+  var costData = document.getElementsByClassName('costContent');
 
   var workingArray = [];
 

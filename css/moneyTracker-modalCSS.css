@@ -7,13 +7,16 @@
   width: 0px;
   height: 100px;
   border: 1px solid lightgrey;
-  margin: 10%;
+  margin: 9%;
 }
 /*Inputs areas*/
 .detailsInputArea {
   text-align: left;
 }
 .costInputArea {
+  display: flex;
+  align-items: left;
+  justify-content: left;
   text-align: center;
 }
 
@@ -37,7 +40,7 @@
 }
 
 .modalInputBtn, .modalInputBtn:hover, .modalInputBtn:active {
-  font-size:13px;
+  font-size:16px;
   box-shadow: none;
   margin-left: 0;
   margin-right: 0;
@@ -48,16 +51,20 @@
   background-color: slategrey;
 }
 
-.close {
-  /* The Close Button */
+.closeBtn {
+  /* The Cancel Button */
     color: white;
     float: right;
-    font-size: 28px;
+    font-size: 16px;
     font-weight: bold;
+    padding: 20px;
+    background-color: tomato;
+    border-radius: 0px 20px 0px 10px;
+    margin: -2px -16px -20px -200px;
 }
 
-.close:hover,
-.close:focus {
+.closeBtn:hover,
+.closeBtn:focus {
   /* The Close Button */
     color: #000;
     text-decoration: none;
@@ -120,6 +127,15 @@
 }
 
  /* Other Modal Elements */
+ .modal-costArea {
+   width: 90%;
+   padding: 5px;
+}
+
+.modal-costDollarLabel {
+  padding-top: 35px;
+  font-size: 150%;
+}
 
 .modal-header {
     padding: 2px 16px;
