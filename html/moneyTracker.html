@@ -7,10 +7,10 @@
   <!-- AJAX Script -->
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script> -->
-  <script src="js/localStorageJS.js"></script>
-  <script src="js/moneyTrackerJS-v2.js"></script>
-  <link rel="stylesheet" type="text/css" href="css/moneyTrackerCSS.css">
-  <link rel="stylesheet" type="text/css" href="css/moneyTracker-modalCSS.css">
+  <script src="../js/localStorageJS.js"></script>
+  <script src="../js/moneyTrackerJS-v2.js"></script>
+  <link rel="stylesheet" type="text/css" href="../css/moneyTrackerCSS.css">
+  <link rel="stylesheet" type="text/css" href="../css/moneyTracker-modalCSS.css">
 </head>
 
 <body onload="htmlRun();">
@@ -29,9 +29,9 @@
   </div>
 
   <!-- //The Modal -->
-  <div id="myModal" class="modal" onClick="modalBgFn(event);">
+  <div id="myModal" class="modal modalFadeIn" onClick="modalBgFn(event);">
     <!-- //Modal content -->
-    <div class="modal-content">
+    <div id="myModalContent" class="modal-content  modalFadeIn">
       <div class="modal-header">
         <span id="closeBtn" class="closeBtn" onClick="modalCloseBtnFn();">Cancel</span>
         <h2 id="headerText">Modal Header</h2>
@@ -57,7 +57,7 @@
           <div id="modal-costDollarLabel" class="modal-costDollarLabel label">$</div>
           <div id="modal-costArea" class="modal-costArea">
             <div class="costLabel label">How much?</div>
-            <input type="text" id="costInput" class="costTextInput" onkeypress="return wasKeyANumber(event); pattern="[0-9]*">
+            <input type="text" id="costInput" class="costTextInput" onkeypress="return wasKeyANumber(event); pattern='[0-9]*'">
           </div>
         </div>
       </div>

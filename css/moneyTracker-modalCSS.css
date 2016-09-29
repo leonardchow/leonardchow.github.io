@@ -103,11 +103,6 @@
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-
-    -webkit-animation-name: fadeIn; /* Fade in the background */
-    -webkit-animation-duration: 0.4s;
-    animation-name: fadeIn;
-    animation-duration: 0.4s
 }
 
 /* Modal Content */
@@ -119,11 +114,6 @@
     background-color: #fefefe;
     width: 500px;
     border-radius: 25px;
-
-    -webkit-animation-name: fadeIn;
-    -webkit-animation-duration: 0.4s;
-    animation-name: fadeIn;
-    animation-duration: 0.4s;
 }
 
  /* Other Modal Elements */
@@ -162,7 +152,15 @@
   -webkit-animation-duration: 0.6s;
 }
 
-.modalFade {
+.modalFadeIn {
+  /* Fade in the background */
+     -webkit-animation-name: fadeIn;
+     -webkit-animation-duration: 0.4s;
+     animation-name: fadeIn;
+     animation-duration: 0.4s
+}
+
+.modalFadeOut {
   animation: fadeIn 0.1s reverse;
   -webkit-animation: fadeIn 0.1s reverse;
 }

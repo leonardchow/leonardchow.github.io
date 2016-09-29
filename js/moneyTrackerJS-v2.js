@@ -12,6 +12,7 @@ var localStoreName;
 var dataArray;
 
 var modal;
+var modalContent;
 var modalIsClosing;
 var openBtn;
 var closeBtn;
@@ -64,6 +65,7 @@ function loadFromData(inputDataArray) {
 function setupModal() {
   // Get the modal
   modal = document.getElementById('myModal');
+  modalContent = document.getElementById('myModalContent');
   // Set a variable to determine what element fires the animation
   //???
   // Get the button that opens the modal
@@ -144,18 +146,29 @@ function openModal(status) {
 function closeModal() {
   var iterableArr = [titleInput, locInput, timeInput, costInput];
 
-  modal.addEventListener("animationend", listener, false);
-
-  modal.classList.add("modalFade");
-
   modalIsClosing = true;
-  function listener() {
+  //modal.addEventListener("webkitAnimationEnd", listener, false);
+
+  modal.classList.remove("modalFadeIn");
+  //modalContent.classList.remove("modalFadeIn");
+
+  //modal.classList.add("modalFadeOut");
+
+  modal.style.display = "none";
+
+
+  //function listener() {
     if (modalIsClosing) { //Check if the closeBtn button set off the animation
-      modal.classList.remove("modalFade");
-      modal.style.display = "none";
+      //modal.classList.remove("modalFadeOut");
+
+      modal.classList.add("modalFadeIn");
+      //modalContent.classList.add("modalFadeIn");
+
       modalIsClosing = false;
+      console.log("closing");
+
     }
-  }
+  //}
 
   // Reset input highlights
   for (var i = 0; i < iterableArr.length; i ++) {
@@ -351,14 +364,15 @@ function wasKeyANumber(e) {
 
 function delBtnFn(sender) {
   var e = sender.target.parentElement.parentElement.parentElement;
+  console.log(e);
 
-  e.addEventListener("animationend", listener, false);
-  e.classList.add('moveOut');
+//  e.addEventListener("animationend", listener, false);
+  //e.classList.add('moveOut');
 
-  function listener(f) {
+  //function listener(f) {
     e.remove();
     entryUpdate();
-  }
+  //}
 }
 
 function editBtnFn(sender) {
