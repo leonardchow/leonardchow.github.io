@@ -6,9 +6,6 @@
 // clearLocalStorage(localStoreName) -> nothing
 // saveToLocalStorage(localStoreName, saveItem) -> nothing
 var localStoreName;
-var webStore;
-var retrieveInfo;
-var localStoreName;
 var dataArray;
 
 var modal;
