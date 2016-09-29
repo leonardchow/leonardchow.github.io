@@ -16,7 +16,17 @@
 }
 
 .bodyContainer {
-  text-align: center;
+  height: 120px;
+  max-height: 120px;
+  overflow: hidden;
+  padding: none;
+  margin: none;
+  border: none
+}
+
+.bodyImages {
+  width: 120px;
+  max-width: 120px;
 }
 
 .bodyFrame {
@@ -24,7 +34,12 @@
   cursor:pointer;
 }
 
-.bodyImages {
-  width: 120px;
-  max-width: 120px;
+.outputContainer {
+  font-size: 1em;
+  display: none;
+}
+
+.result {
+  font-family: monospace;
+  font-size: 3em;
 }
