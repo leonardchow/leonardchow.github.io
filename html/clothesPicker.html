@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--
+-->
+<html>
+<head>
+  <title>Clothes Picker</title>
+  <!-- AJAX Script -->
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script> -->
+  <script src="../js/clothesPickerJS.js"></script>
+  <link rel="stylesheet" type="text/css" href="../css/clothesPickerCSS.css">
+  <link rel="stylesheet" type="text/css" href="../css/clothesPicker-modalCSS.css">
+</head>
+
+<body>
+
+<div class="titleDiv" align="center">Clothes Picker</div>
+
+<div class="main">
+<!--
+  <input type="button" class="modalToggle" onclick="openModal('head', 'imageSetHead');" value="Open Modal">
+-->
+  <div class="bodyContainer">
+    <div class="bodyFrame bodyImages">
+      <img class="bodyPick bodyImages" id="bodyPartHead" src="../images/freshscanlogo.png" onclick="openModal(event, 'imageSetHead');">
+    </div>
+  </div>
+</div>
+
+<div class="modal">
+  <div class="modalContent">
+    <div class="modalHeader">
+      Header
+      Instructions bla bla bla
+    </div>
+    <div class="modalImageContainer">
+      <div class="imageFrame modalImages" id="img1">
+
+        <img class="imagePick modalImages" src="../images/freshscanlogo.png" onclick="imgClicked(event);">
+        <br>
+        <span class="imageDesc">Description</span>
+
+      </div>
+      <!--
+      <div class="imageFrame" id="img2">
+        [IMG] <br>
+        <img class="imagePick" width= "50px" src="../images/freshscanlogo.png" onclick="imgClicked(event);">
+      </div>
+      -->
+    </div>
+  </div>
+</div>
+
+<script>
+htmlLoaded();
+</script>
+
+</body>
+</html>

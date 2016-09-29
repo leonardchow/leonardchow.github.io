@@ -1,0 +1,30 @@
+.titleDiv {
+  font-family:sans-serif;
+  font-size: 30pt;
+  font-weight: bold;
+  margin: auto;
+  text-align: center;
+  padding: 5px;
+}
+
+.main {
+  font-family:sans-serif;
+  font-size: 20pt;
+  margin: auto;
+  text-align: center;
+  padding: 5px;
+}
+
+.bodyContainer {
+  text-align: center;
+}
+
+.bodyFrame {
+  display: inline-block;
+  cursor:pointer;
+}
+
+.bodyImages {
+  width: 120px;
+  max-width: 120px;
+}
