@@ -115,6 +115,8 @@ function error(err) {
   console.warn(`ERROR(${err.code}): ${err.message}`);
 };
 
+/*
+
 function loadJSON(path, success, error) {
 // In lieu of JSON's .get()!
   var xhr = new XMLHttpRequest();
@@ -134,7 +136,6 @@ function loadJSON(path, success, error) {
   xhr.send();
 }
 
-/*
 function showPosition(position) {
   var googleMapURL = "http://maps-api-ssl.google.com/maps/api/geocode/json?latlng=";
   var googleMapURLSuffix = "&sensor=false";

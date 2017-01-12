@@ -5,6 +5,8 @@ function callDarkSky(lat, long) {
   var darkSkyCoords = lat + "," + long;
   var darkSkyRequest = darkSkyURL + "/" + darkSkyKey + "/" + darkSkyCoords;
   console.log(darkSkyRequest);
+
+  /*
   loadJSON(darkSkyRequest,
             function(data) {
               console.log(data);
@@ -13,6 +15,20 @@ function callDarkSky(lat, long) {
             function(xhrError) {
               console.log(xhrError);
             });
+
+  */
+
+  $.ajax({
+    url: darkSkyRequest,
+    dataType: "jsonp",
+    success: function (data) {
+        console.log(data);
+        processDSData(data);
+    },
+    error: function (xhrError) {
+        console.log(xhrError);
+    }
+  });
 }
 
 function processDSData(DSdata) {
